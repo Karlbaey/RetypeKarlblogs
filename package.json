@@ -42,11 +42,11 @@
     "unist-util-visit": "^5.0.0"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^5.1.0",
+    "@antfu/eslint-config": "^5.2.0",
     "@astrojs/check": "^0.9.4",
     "@lokesh.dhakar/quantize": "^1.4.0",
     "@types/markdown-it": "^14.1.2",
-    "@types/node": "^24.1.0",
+    "@types/node": "^24.2.0",
     "@types/sanitize-html": "^2.16.0",
     "@unocss/eslint-plugin": "66.4.0",
     "@unocss/preset-attributify": "66.4.0",
