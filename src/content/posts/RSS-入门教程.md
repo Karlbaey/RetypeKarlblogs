@@ -1,7 +1,7 @@
 ---
 title: RSS 入门教程
 published: 2025-03-29
-tags: [Guide]
+tags: [教程]
 abbrlink: rss-tutorial-for-karlblogs
 ---
 ## 开始 ——RSS 简介

@@ -2,7 +2,7 @@
 title: 【清明节特刊】乐评：碎月群岛BrokenMoon Islands
 toc: true
 published: 2025-04-04
-tags: [Reviews, Minecraft]
+tags: [评论, Minecraft]
 abbrlink: brokenmoon-islands
 ---
 

@@ -2,7 +2,7 @@
 title: 卡尔白算法之路的开山之作：LeetCode20-有效的括号
 toc: true
 published: 2025-04-20
-tags: [Algos, Python, LeetCode]
+tags: [算法, Python, LeetCode]
 abbrlink: valid-parentheses
 ---
 欢迎前往[我的仓库](https://github.com/Karlbaey101/Karlgo)支持！

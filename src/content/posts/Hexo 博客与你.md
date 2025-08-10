@@ -1,7 +1,7 @@
 ---
 title: Hexo 博客与你
 published: 2025-02-09
-tags: [GitHub, Guide]
+tags: [GitHub, 教程]
 abbrlink: hexo-blog-and-you
 ---
 
