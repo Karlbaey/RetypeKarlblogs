@@ -26,19 +26,17 @@ export async function getStaticPaths() {
 
   return paths
 }
-
-const { lang } = Astro.props
 ---
-
-<p>友链正在维护中，请等待维护完成，多谢理解！</p>
 
 <Layout>
   <!-- Decorative Line -->
   <div class="uno-decorative-line" />
   <!-- About Page Content -->
   <div class="heti">
-      <center>申请友链须知</center>
+      <center style="font-weight: bold">申请友链须知</center>
       <hr>
+      <p><em>友链正在维护中，请等待维护完成，多谢理解！</em></p>
+
       <p>申请请提供：站点名称、站点链接、站点描述、<strong>logo或头像</strong>（<code>不要设置防盗链</code>）。</p>
 
       <p>排名不分先后，刷新后重排，更新信息后请留言告知。会定期清理很久很久不更新的、不符合要求的友链。本站不存储友链图片，如果友链图片换了无法更新。图片裂了的会替换成默认图，需要更换的请留言告知。</p>
