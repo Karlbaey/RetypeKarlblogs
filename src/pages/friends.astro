@@ -12,14 +12,14 @@ export async function getStaticPaths() {
 
   // Default locale
   paths.push({
-    params: { about: 'about/' },
+    params: { about: 'friends/' },
     props: { lang: defaultLocale },
   })
 
   // More locales
   moreLocales.forEach((lang: string) => {
     paths.push({
-      params: { about: `${lang}/about/` },
+      params: { about: `${lang}/friends/` },
       props: { lang },
     })
   })
