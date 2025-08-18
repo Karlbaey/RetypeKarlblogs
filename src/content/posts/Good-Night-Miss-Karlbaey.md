@@ -1,6 +1,6 @@
 ---
 title: 晚安，卡尔白
-tags: [原创]
+tags: [原创, 昨日黄昏]
 abbrlink: good-night-miss-karlbaey
 published: 2025-07-05
 ---
