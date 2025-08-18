@@ -62,6 +62,7 @@ export async function getStaticPaths() {
       transition: background 1s ease;
       line-height: 1.8;
       font-weight: 400;
+      position: relative;
     }
     
     .intro-container {
@@ -166,7 +167,6 @@ export async function getStaticPaths() {
       opacity: 1;
     }
     
-    /* 正文内容 */
     .content {
       padding: 150px 20px 80px;
       max-width: 800px;
@@ -340,6 +340,12 @@ export async function getStaticPaths() {
       text-align: center;
       font-family: var(--font-primary);
     }
+
+    .giscus-container {
+        width: 800px;
+        max-width: 60%;
+        margin: auto;
+    }
     
     footer {
       text-align: center;
@@ -353,31 +359,143 @@ export async function getStaticPaths() {
     
     @media (max-width: 768px) {
       h1 {
-        font-size: 2.5rem;
-        padding-top: 40px;
+        font-size: 2.2rem;
+        padding-top: 30px;
       }
       
       .hero-text {
-        font-size: 2.2rem;
+        font-size: 2rem;
+        top: 15%;
       }
       
       .section-title {
-        font-size: 1.7rem;
+        font-size: 1.6rem;
       }
       
       .quote {
         font-size: 1.1rem;
         padding: 1.2rem;
+        margin: 1.5rem 0;
+      }
+      
+      .quote::before {
+        font-size: 3rem;
+        top: -10px;
       }
       
       .gallery {
         grid-template-columns: 1fr;
+        gap: 20px;
       }
+      
+      .content {
+        padding: 100px 15px 50px;
+      }
+      
+      .section {
+        padding: 40px 0;
+      }
+      
+      .post-content p {
+        font-size: 1rem;
+        line-height: 1.7;
+      }
+      
+      .post-meta {
+        font-size: 0.95rem;
+        margin-bottom: 1.8rem;
+      }
+      
+      .sun {
+        width: 150px;
+        height: 75px;
+        bottom: 40px;
+      }
+      
+      .waves {
+        height: 100px;
+        bottom: calc(50% - 80px);
+      }
+      
+      .wave {
+        height: 80px;
+      }
+      
+      .fixed-sun {
+        width: 150px;
+        height: 75px;
+        top: -40px;
+      }
+      
+      .fixed-waves {
+        top: 35px;
+        height: 80px;
+      }
+      
+      a, button {
+        min-height: 44px;
+        min-width: 44px;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 1.8rem;
+        padding-top: 20px;
+      }
+      
+      .hero-text {
+        font-size: 1.6rem;
+      }
+      
+      .section-title {
+        font-size: 1.4rem;
+      }
+      
+      .section-title::before {
+        height: 20px;
+        top: 10px;
+      }
+      
+      .fixed-sun {
+        width: 120px;
+        height: 60px;
+      }
+    }
+    
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+    
+    ::-webkit-scrollbar-thumb {
+      background: rgba(255, 107, 53, 0.5);
+      border-radius: 4px;
+    }
+    
+    * {
+      -webkit-touch-callout: none;
+      -webkit-user-select: none;
+      -khtml-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+    
+    p, h1, h2, h3, span, div {
+      -webkit-user-select: text;
+      -moz-user-select: text;
+      -ms-user-select: text;
+      user-select: text;
+    }
+
+    .gallery-item, .mobile-nav a {
+      -webkit-tap-highlight-color: transparent;
     }
   </style>
 </head>
 <body>
-  <!-- 开场动画 -->
+  
   <div class="intro-container" id="intro">
     <div class="sun"></div>
     <div class="hero-text">昨   日   黄   昏</div>
@@ -387,21 +505,22 @@ export async function getStaticPaths() {
     </div>
   </div>
   
-  <!-- 固定在顶部的太阳 -->
   <div class="fixed-sun" id="fixedSun"></div>
   
-  <!-- 固定在顶部的波浪 -->
   <div class="fixed-waves" id="fixedWaves">
     <div class="wave wave-1"></div>
     <div class="wave wave-2"></div>
   </div>
   
-  <!-- 正文内容 -->
   <main class="content" id="content">
-    <h1>昨日黄昏　中心页</h1>
+    <h1 id="top">昨日黄昏　中心页</h1>
     
     <div class="post-meta">
       <span>作者：J. N. Karlbaey | 测试时间：2025年8月18日</span>
+    </div>
+
+    <div style="color: #faa03a">
+      <span><a href="/">←返回主页</span>
     </div>
     
     <div class="post-content">
@@ -411,12 +530,12 @@ export async function getStaticPaths() {
       
       <p>使用 HTML 中的 &lt;p&gt; 标签创建一个段落，使用 &lt;span class="highlight"&gt;&lt;/span&gt; 来创建高亮块，高亮块展示效果像这样：<span class="highlight">地球在远日点上</span>。</p>
       
-      <div class="section">
+      <div class="section" id="section1">
         <h2 class="section-title">创建一个分节</h2>
         <p>可以使用 &lt;div class="section"&gt;&lt;h2 class="section-title"&gt;&lt;/h2&gt;&lt;/div&gt; 创建一个分节，在 &lt;h2&gt; 标签中填写这一分节的标题。</p>
       </div>
       
-      <div class="section">
+      <div class="section" id="section2">
         <h2 class="section-title">调色板</h2>
         <p>下面是三块<span class="highlight">调色板</span>，感谢 VSCode 市场中这么优秀的调色板插件。</p>
         
@@ -437,7 +556,8 @@ export async function getStaticPaths() {
       </div>
     </div>
   </main>
-  <div style="width: 800px; margin: auto;">
+  
+  <div class="giscus-container" id="comments">
     <script src="https://giscus.app/client.js"
         data-repo="Karlbaey/Karlblogs-Comments"
         data-repo-id="R_kgDON2YNqA"
@@ -462,34 +582,53 @@ export async function getStaticPaths() {
 
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      // 安全地获取元素引用
+      
       const intro = document.getElementById('intro');
       const content = document.getElementById('content');
       const fixedSun = document.getElementById('fixedSun');
       const fixedWaves = document.getElementById('fixedWaves');
       
-      // 确保所有元素都存在
+      const mobileNavBtn = document.getElementById('mobileNavBtn');
+      const mobileNav = document.getElementById('mobileNav');
+      
+      if (mobileNavBtn && mobileNav) {
+        mobileNavBtn.addEventListener('click', () => {
+          mobileNavBtn.classList.toggle('active');
+          mobileNav.classList.toggle('active');
+        });
+      }
+      
+      if (mobileNavBtn && mobileNav) {
+        const navLinks = document.querySelectorAll('.mobile-nav a');
+        navLinks.forEach(link => {
+          link.addEventListener('click', () => {
+            if (mobileNavBtn) mobileNavBtn.classList.remove('active');
+            if (mobileNav) mobileNav.classList.remove('active');
+          });
+        });
+      }
+      
       if (intro && content && fixedSun && fixedWaves) {
-        // 1.5秒后开始过渡效果
+        
         setTimeout(() => {
-          // 添加模糊和淡出效果
+          
           intro.style.filter = 'blur(10px)';
           intro.style.opacity = '0';
           
-          // 显示正文内容
+          
           setTimeout(() => {
-            content.classList.add('visible');
-            fixedSun.classList.add('visible');
-            fixedWaves.classList.add('visible');
+            if (content) content.classList.add('visible');
+            if (fixedSun) fixedSun.classList.add('visible');
+            if (fixedWaves) fixedWaves.classList.add('visible');
             
-            // 移除开场动画
+            
             setTimeout(() => {
-              intro.style.display = 'none';
+              if (intro) intro.style.display = 'none';
             }, 500);
           }, 300);
         }, 1500);
       } else {
-        // 如果元素缺失，直接显示内容
+        
         if (content) content.classList.add('visible');
         if (fixedSun) fixedSun.classList.add('visible');
         if (fixedWaves) fixedWaves.classList.add('visible');
@@ -497,23 +636,25 @@ export async function getStaticPaths() {
         console.error('部分动画元素缺失，直接显示内容');
       }
       
-      // 滚动效果：太阳和海浪随滚动向上移动
+      
       window.addEventListener('scroll', () => {
         const scrollY = window.scrollY;
-        const maxScroll = 300; // 最大滚动距离
+        const maxScroll = 300; 
         
         if (fixedSun && fixedWaves) {
-          // 计算偏移量（向上移动）
+          
           const sunOffset = Math.min(scrollY * 0.7, maxScroll);
           const wavesOffset = Math.min(scrollY * 0.9, maxScroll);
           
           fixedSun.style.transform = `translateX(-50%) translateY(${-sunOffset}px)`;
           fixedWaves.style.transform = `translateY(${-wavesOffset}px)`;
           
-          // 淡出效果
+          
           const opacity = 1 - Math.min(scrollY / 200, 1);
         }
       });
+      
+      document.addEventListener('touchstart', function() {}, {passive: true});
     });
   </script>
 </body>
